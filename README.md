@@ -24,7 +24,7 @@ A web application to help you track and practice LeetCode questions by company. 
 
 ## Tech Stack
 
-- HTML/CSS with Tailwind CSS for styling
+- HTML/CSS with UnoCSS for styling
 - Vanilla JavaScript for interactivity
 - Local Storage for data persistence
 - DuckDuckGo web crawler for question links
