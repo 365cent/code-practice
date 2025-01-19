@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cisco Questions</title>
   <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@unocss/reset@0.61.0/tailwind-compat.min.css">
   <style>
@@ -15,18 +16,18 @@
 
 <!-- Header -->
 <header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-sm border-b border-gray-200">
-  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
-      <div class="flex items-center gap-4">
+  <div class="max-w-screen-xl mx-auto px-3 sm:px-6 lg:px-8">
+    <div class="flex h-14 sm:h-16 items-center justify-between">
+      <div class="flex items-center gap-2 sm:gap-4">
         <img 
           src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" 
           alt="Cisco Logo" 
-          class="h-8 w-auto"
+          class="h-6 sm:h-8 w-auto"
         />
-        <h1 class="text-xl font-semibold">Code Practice</h1>
+        <h1 class="text-lg sm:text-xl font-semibold">Code Practice</h1>
       </div>
-      <nav class="flex items-center gap-6">
-        <a href="index.html" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+      <nav class="flex items-center gap-4 sm:gap-6">
+        <a href="index.html" class="text-xs sm:text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
           All Companies
         </a>
       </nav>
@@ -35,53 +36,53 @@
 </header>
 
 <!-- Main content -->
-<main class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<main class="max-w-screen-xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8">
   <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
     <!-- Company header -->
-    <div class="p-6 sm:p-8 border-b border-gray-200">
-      <div class="flex items-center justify-between mb-6">
+    <div class="p-4 sm:p-6 md:p-8 border-b border-gray-200">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6 mb-4 sm:mb-6">
         <div>
-          <h2 class="text-2xl font-bold tracking-tight">Cisco</h2>
-          <p class="mt-1 text-sm text-gray-500">79 questions · 156 saved</p>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Cisco</h2>
+          <p class="mt-1 text-xs sm:text-sm text-gray-500">79 questions · 156 saved</p>
         </div>
-        <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-colors">
+        <button class="w-full sm:w-auto inline-flex items-center justify-center rounded-md bg-blue-600 px-3 sm:px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-colors">
           Practice
         </button>
       </div>
 
       <!-- Progress section -->
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-        <div class="flex items-center gap-6">
+        <div class="flex items-center gap-4 sm:gap-6">
           <div class="relative">
-            <div class="w-20 h-20 rounded-full border-4 border-blue-600/20">
+            <div class="w-16 sm:w-20 h-16 sm:h-20 rounded-full border-4 border-blue-600/20">
               <div class="absolute inset-0 flex items-center justify-center">
-                <span class="text-xl font-semibold">10/24</span>
+                <span class="text-lg sm:text-xl font-semibold">10/24</span>
               </div>
             </div>
           </div>
-          <p class="text-sm text-gray-600">Solved in the last 6 months</p>
+          <p class="text-xs sm:text-sm text-gray-600">Solved in the last 6 months</p>
         </div>
         
-        <div class="grid grid-cols-3 gap-8 text-center">
+        <div class="grid grid-cols-3 gap-4 sm:gap-8 text-center">
           <div class="space-y-1">
-            <p class="text-sm font-medium text-gray-500">Easy</p>
-            <p class="text-lg font-semibold text-emerald-600">3/8</p>
+            <p class="text-xs sm:text-sm font-medium text-gray-500">Easy</p>
+            <p class="text-base sm:text-lg font-semibold text-emerald-600">3/8</p>
           </div>
           <div class="space-y-1">
-            <p class="text-sm font-medium text-gray-500">Medium</p>
-            <p class="text-lg font-semibold text-amber-600">7/12</p>
+            <p class="text-xs sm:text-sm font-medium text-gray-500">Medium</p>
+            <p class="text-base sm:text-lg font-semibold text-amber-600">7/12</p>
           </div>
           <div class="space-y-1">
-            <p class="text-sm font-medium text-gray-500">Hard</p>
-            <p class="text-lg font-semibold text-rose-600">0/4</p>
+            <p class="text-xs sm:text-sm font-medium text-gray-500">Hard</p>
+            <p class="text-base sm:text-lg font-semibold text-rose-600">0/4</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Questions list -->
-    <div class="p-6 sm:p-8">
-      <h3 class="text-lg font-semibold mb-6">Questions</h3>
+    <div class="p-4 sm:p-6 md:p-8">
+      <h3 class="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Questions</h3>
       <div id="question-list" class="divide-y divide-gray-200 tasks"></div>
     </div>
   </div>
@@ -89,24 +90,24 @@
 
 <!-- Task template -->
 <template id="task">
-  <div class="task py-4 flex items-center justify-between group">
-    <div class="flex items-center gap-4">
+  <div class="task py-3 sm:py-4 flex items-center justify-between group">
+    <div class="flex items-center gap-3 sm:gap-4">
       <input type="checkbox" class="task__checkbox w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600">
       <div>
-        <a class="task__text text-gray-900 hover:text-blue-600 font-medium transition-colors"></a>
-        <div class="mt-1 text-sm text-gray-500 flex items-center gap-2">
+        <a class="task__text text-sm sm:text-base text-gray-900 hover:text-blue-600 font-medium transition-colors"></a>
+        <div class="mt-0.5 sm:mt-1 text-xs sm:text-sm text-gray-500 flex items-center gap-2">
           Difficulty: <span class="font-medium text-amber-600"></span>
         </div>
       </div>
     </div>
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-2 sm:gap-4">
       <div class="text-xs hidden sm:block">
         <span class="inline-flex items-center rounded-md bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">
           In 6m
         </span>
       </div>
-      <button class="task__delete text-gray-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-all">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <button class="task__delete text-gray-400 hover:text-red-600 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-all">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
