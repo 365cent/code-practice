@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cisco Questions</title>
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@unocss/reset@0.61.0/tailwind-compat.min.css">
+  <style>
+    .task--done {
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+
+<!-- Header -->
+<header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-sm border-b border-gray-200">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <div class="flex items-center gap-4">
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" 
+          alt="Cisco Logo" 
+          class="h-8 w-auto"
+        />
+        <h1 class="text-xl font-semibold">Code Practice</h1>
+      </div>
+      <nav class="flex items-center gap-6">
+        <a href="index.html" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+          All Companies
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- Main content -->
+<main class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+    <!-- Company header -->
+    <div class="p-6 sm:p-8 border-b border-gray-200">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight">Cisco</h2>
+          <p class="mt-1 text-sm text-gray-500">79 questions · 156 saved</p>
+        </div>
+        <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-colors">
+          Practice
+        </button>
+      </div>
+
+      <!-- Progress section -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <div class="flex items-center gap-6">
+          <div class="relative">
+            <div class="w-20 h-20 rounded-full border-4 border-blue-600/20">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-xl font-semibold">10/24</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600">Solved in the last 6 months</p>
+        </div>
+        
+        <div class="grid grid-cols-3 gap-8 text-center">
+          <div class="space-y-1">
+            <p class="text-sm font-medium text-gray-500">Easy</p>
+            <p class="text-lg font-semibold text-emerald-600">3/8</p>
+          </div>
+          <div class="space-y-1">
+            <p class="text-sm font-medium text-gray-500">Medium</p>
+            <p class="text-lg font-semibold text-amber-600">7/12</p>
+          </div>
+          <div class="space-y-1">
+            <p class="text-sm font-medium text-gray-500">Hard</p>
+            <p class="text-lg font-semibold text-rose-600">0/4</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Questions list -->
+    <div class="p-6 sm:p-8">
+      <h3 class="text-lg font-semibold mb-6">Questions</h3>
+      <div id="question-list" class="divide-y divide-gray-200 tasks"></div>
+    </div>
+  </div>
+</main>
+
+<!-- Task template -->
+<template id="task">
+  <div class="task py-4 flex items-center justify-between group">
+    <div class="flex items-center gap-4">
+      <input type="checkbox" class="task__checkbox w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600">
+      <div>
+        <a class="task__text text-gray-900 hover:text-blue-600 font-medium transition-colors"></a>
+        <div class="mt-1 text-sm text-gray-500 flex items-center gap-2">
+          Difficulty: <span class="font-medium text-amber-600"></span>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="text-xs hidden sm:block">
+        <span class="inline-flex items-center rounded-md bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">
+          In 6m
+        </span>
+      </div>
+      <button class="task__delete text-gray-400 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-all">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</template>
+
+<script type="module">
+import LocalStorage from './LocalStorage.js';
+
+const storage = new LocalStorage();
+const tasks = storage.tasks;
+
+const container = document.querySelector('.tasks');
+const template = document.querySelector('#task');
+
+/**
+ * We have a list of question IDs for Cisco:
+ * 198, 146, 2016, 2067, 2448, 1784, 3047, 2081, 2047, 54,
+ * 1380, 212, 5, 48, 412, 2719, 53, 2986, 55, 647, 20, 128,
+ * 283, 26
+ */
+const ciscoQuestionIds = [
+  198, 146, 2016, 2067, 2448, 1784, 3047, 2081, 2047, 54,
+  1380, 212, 5, 48, 412, 2719, 53, 2986, 55, 647, 20, 128,
+  283, 26
+];
+
+function buildCrawlerUrl(qId) {
+  const ddgQuery = encodeURIComponent(`https://html.duckduckgo.com/html/?q=leetcode${qId}`);
+  const selector = encodeURIComponent('.results > :first-child .result__title a');
+  return `https://web.mxtrans.net?url=${ddgQuery}&selector=${selector}&scrape=attr&spaced=true&attr=href&pretty=true`;
+}
+
+function parseLeetCodeLink(duckduckgoUrl) {
+  const match = duckduckgoUrl.match(/uddg=(.+?)(&|$)/);
+  if (match && match[1]) {
+    const urlEncoded = match[1];
+    const realUrl = decodeURIComponent(urlEncoded);
+    return realUrl.includes('/description') ? realUrl : realUrl.replace(/\/$/, '') + '/description/';
+  }
+  return '#';
+}
+
+function parseQuestionTitle(url) {
+  const match = url.match(/problems\/([^/]+)/);
+  if (match && match[1]) {
+    return match[1]
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+  return 'LeetCode Question';
+}
+
+async function fetchQuestionUrl(qId) {
+  const crawlerLink = buildCrawlerUrl(qId);
+  try {
+    const resp = await fetch(crawlerLink);
+    const data = await resp.json();
+    return parseLeetCodeLink(data.result || '');
+  } catch (err) {
+    console.error('Error fetching crawler link for question:', qId, err);
+    return '#';
+  }
+}
+
+function toggleTaskStatusClass({checked, task}) {
+  task.classList[checked ? 'add' : 'remove']('task--done');
+}
+
+async function loadCiscoQuestions() {
+  for (const qId of ciscoQuestionIds) {
+    const difficulty = (Math.random() > 0.5) ? 'Med.' : 'Easy';
+    const finalLink = await fetchQuestionUrl(qId);
+    const questionTitle = parseQuestionTitle(finalLink);
+
+    const data = {
+      value: `${qId}. ${questionTitle}`,
+      checked: false,
+      link: finalLink,
+      difficulty: difficulty
+    };
+
+    const clone = template.content.cloneNode(true);
+    const task = clone.querySelector('.task');
+    const checkbox = clone.querySelector('.task__checkbox');
+    const title = clone.querySelector('.task__text');
+    const difficultySpan = clone.querySelector('.text-amber-600');
+    const del = clone.querySelector('.task__delete');
+
+    title.innerHTML = data.value;
+    title.href = data.link;
+    checkbox.checked = data.checked;
+    difficultySpan.textContent = data.difficulty;
+
+    toggleTaskStatusClass({checked: data.checked, task});
+
+    checkbox.addEventListener('input', () => {
+      data.checked = checkbox.checked;
+      toggleTaskStatusClass({checked: data.checked, task});
+      storage.update(data);
+    });
+
+    del.addEventListener('click', () => {
+      storage.delete(data);
+      task.remove();
+    });
+
+    storage.create(data);
+    container.appendChild(clone);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadCiscoQuestions);
+</script>
+<script src="https://fastly.jsdelivr.net/npm/@unocss/runtime/mini.global.js"></script>
+
+</body>
+</html>
